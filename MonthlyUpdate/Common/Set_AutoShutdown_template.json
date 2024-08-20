@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "shutdownStatus": {
+            "type": "string",
+            "defaultValue": "Enabled"
+        },
+        "shutdownTime": {
+            "type": "string"
+        },
+        "shutdownTimezone": {
+            "type": "string",
+            "defaultValue": "Tokyo Standard Time"
+        },
+        "shutdownNotification": {
+            "type": "string",
+            "defaultValue": "Disabled"
+        },
+        "shutdownNotificationTime": {
+            "type": "int",
+            "defaultValue": 15
+        },
+        "shutdownNotificationWebHook": {
+            "type": "string",
+            "defaultValue": "http://example.com/"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.DevTestLab/schedules",
+            "name": "[concat('shutdown-computevm-',parameters('vmName'))]",
+            "apiVersion": "2016-05-15",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [],
+            "properties": {
+                "status": "[parameters('shutdownStatus')]",
+                "taskType": "ComputeVmShutdownTask",
+                "dailyRecurrence": {
+                    "time": "[parameters('shutdownTime')]"
+                },
+                "timeZoneId": "[parameters('shutdownTimezone')]",
+                "notificationSettings": {
+                    "status": "[parameters('shutdownNotification')]",
+                    "timeInMinutes": "[parameters('shutdownNotificationTime')]",
+                    "webhookUrl": "[parameters('shutdownNotificationWebHook')]"
+                },
+                "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines',parameters('vmName'))]"
+            }
+        }
+    ]
+}

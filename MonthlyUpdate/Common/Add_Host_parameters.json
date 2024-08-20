@@ -1,0 +1,186 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hciArtifactsLocation": {
+            "value": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/HCIScripts_1.0.02721.349/HciCustomScript.ps1"
+        },
+        "customLocationId": {
+            "value": ""
+        },
+        "virtualProcessorCount": {
+            "value": null
+        },
+        "memoryMB": {
+            "value": 0
+        },
+        "maximumMemoryMB": {
+            "value": 0
+        },
+        "minimumMemoryMB": {
+            "value": 0
+        },
+        "dynamicMemoryConfig": {
+            "value": false
+        },
+        "vmInfrastructureType": {
+            "value": "Cloud"
+        },
+        "artifactsLocation": {
+            "value": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/Configuration_1.0.02721.349.zip"
+        },
+        "nestedTemplatesLocation": {
+            "value": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/armtemplates/Hostpool_1.0.02721.349/nestedTemplates/"
+        },
+        "hostpoolName": {
+            "value": ""
+        },
+        "hostpoolProperties": {
+            "value": {}
+        },
+        "hostpoolResourceGroup": {
+            "value": ""
+        },
+        "hostpoolLocation": {
+            "value": "westus2"
+        },
+        "hostpoolToken": {
+            "value": null
+        },
+        "vmInitialNumber": {
+            "value": 0
+        },
+        "vmResourceGroup": {
+            "value": ""
+        },
+        "vmLocation": {
+            "value": ""
+        },
+        "vmExtendedLocation": {
+            "value": null
+        },
+        "vmNamePrefix": {
+            "value": ""
+        },
+        "vmNumberOfInstances": {
+            "value": 1
+        },
+        "vmSize": {
+            "value": ""
+        },
+        "vmDiskType": {
+            "value": ""
+        },
+        "vmDiskSizeGB": {
+            "value": 0
+        },
+        "availabilityOption": {
+            "value": "None"
+        },
+        "availabilitySetName": {
+            "value": ""
+        },
+        "createAvailabilitySet": {
+            "value": false
+        },
+        "availabilitySetUpdateDomainCount": {
+            "value": 5
+        },
+        "availabilitySetFaultDomainCount": {
+            "value": 2
+        },
+        "availabilityZones": {
+            "value": []
+        },
+        "securityType": {
+            "value": "Standard"
+        },
+        "secureBoot": {
+            "value": false
+        },
+        "vTPM": {
+            "value": false
+        },
+        "managedDiskSecurityEncryptionType": {
+            "value": "VMGuestStateOnly"
+        },
+        "integrityMonitoring": {
+            "value": false
+        },
+        "vmImageType": {
+            "value": ""
+        },
+        "bootDiagnostics": {
+            "value": {
+                "enabled": true
+            }
+        },
+        "customConfigurationScriptUrl": {
+            "value": ""
+        },
+        "virtualNetworkResourceGroupName": {
+            "value": ""
+        },
+        "existingVnetName": {
+            "value": ""
+        },
+        "existingSubnetName": {
+            "value": ""
+        },
+        "createNetworkSecurityGroup": {
+            "value": false
+        },
+        "aadJoin": {
+            "value": false
+        },
+        "intune": {
+            "value": false
+        },
+        "administratorAccountUsername": {
+            "value": ""
+        },
+        "administratorAccountPassword": {
+            "value": null
+        },
+        "domain": {
+            "value": ""
+        },
+        "ouPath": {
+            "value": ""
+        },
+        "vmAdministratorAccountUsername": {
+            "value": ""
+        },
+        "vmAdministratorAccountPassword": {
+            "value": null
+        },
+        "networkInterfaceTags": {
+            "value": {}
+        },
+        "networkSecurityGroupTags": {
+            "value": {}
+        },
+        "availabilitySetTags": {
+            "value": {}
+        },
+        "virtualMachineTags": {
+            "value": {}
+        },
+        "deploymentId": {
+            "value": ""
+        },
+        "apiVersion": {
+            "value": "2022-10-14-preview"
+        },
+        "vmCustomImageSourceId": {
+            "value": ""
+        },
+        "systemData": {
+            "value": {
+                "aadJoinPreview": false,
+                "sessionHostConfigurationVersion": "",
+                "firstPartyExtension": false
+            }
+        }
+    }
+}
