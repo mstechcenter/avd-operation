@@ -1,11 +1,11 @@
 $ErrorActionPreference = "Stop"
 
-$resourceGroupName = "avd-master"
-$vmName = "AVDMaster"
-$location = "japaneast"
+# Load parameter
+.$args[0]
 
 # Connect to Azure
 if (-not (Get-AzContext)) {Connect-AzAccount}
+Get-AzSubscription -SubscriptionName $subscriptionName | Set-AzContext
 
 try {
     # Get the VM

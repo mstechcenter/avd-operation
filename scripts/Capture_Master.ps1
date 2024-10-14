@@ -1,16 +1,11 @@
 $ErrorActionPreference = "Stop"
 
-$vmResourceGroupName = "avd-master"
-$vmName = "AVDMaster"
-$galleryName = "AVDImage"
-$imageDefinition="AVDMaster"
-$resourceGroupName = "avd"
-$location = "japaneast"
-$targetRegion = @{Name = 'japaneast'}
-$replicaCount = 1
+# Load parameter
+.$args[0]
 
 # Connect to Azure
 if (-not (Get-AzContext)) {Connect-AzAccount}
+Get-AzSubscription -SubscriptionName $subscriptionName | Set-AzContext
 
 try {
     # Stop the VM and generalize it
@@ -32,7 +27,7 @@ try {
         -SourceImageVMId $vm.Id.ToString() `
         -ReplicaCount $replicaCount
 
-    Write-Output "Successfully captured vm: ${vmName}"
+    Write-Output "Successfully captured vm: ${vmName}"    
 }
 catch {
     Write-Error "Failed to capture the vm: $_"

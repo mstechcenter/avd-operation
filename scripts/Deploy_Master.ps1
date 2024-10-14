@@ -1,16 +1,11 @@
 $ErrorActionPreference = "Stop"
 
-$resourceGroupName = "avd-master"
-$location = "japaneast"
-$snapshotName = "AVDMaster_OSDisk_1_19000101"
-$storageType="Standard_LRS"
-$diskSize = 128
-$subnetId = "/subscriptions/01234567-8901-2345-6789-012345678901/resourceGroups/avd/providers/Microsoft.Network/virtualNetworks/avd-nw/subnets/master"
-$vmName = "AVDMaster"
-$vmSize = "Standard_B2ls_v2"
+# Load parameter
+.$args[0]
 
 # Connect to Azure
 if (-not (Get-AzContext)) {Connect-AzAccount}
+Get-AzSubscription -SubscriptionName $subscriptionName | Set-AzContext
 
 try {
     # Create a new disk from the snapshot
@@ -31,7 +26,7 @@ try {
         -ResourceGroupName $resourceGroupName `
         -DiskName $osDiskName
 
-    # Create a new NIC
+    # Create a new NIC 
     $nicName = "${vmName}_NetworkInterface"
     Write-Output "Deploy the nic: ${nicName}"
     $nic = New-AzNetworkInterface `
